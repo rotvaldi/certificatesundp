@@ -1,136 +1,81 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Certificados</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-        }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1em;
-        }
-        
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .certificate-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 10px;
-            padding: 25px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 200px;
-        }
-        
-        .certificate-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .certificate-card h2 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            word-wrap: break-word;
-        }
-        
-        .certificate-card p {
-            font-size: 0.95em;
-            opacity: 0.9;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-        
-        .certificate-card .date {
-            font-size: 0.85em;
-            opacity: 0.8;
-            margin-bottom: 15px;
-        }
-        
-        .btn {
-            background: rgba(255, 255, 255, 0.25);
-            border: 2px solid white;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-weight: bold;
-            display: inline-block;
-        }
-        
-        .btn:hover {
-            background: white;
-            color: #667eea;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Certificates</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#009EDB;min-height:100vh;padding:40px 20px;}
+.un-header{text-align:center;margin-bottom:28px;font-size:72px;line-height:1;}
+.container{max-width:960px;margin:0 auto;background:#fff;border-radius:4px;border-top:6px solid #009EDB;box-shadow:0 4px 24px rgba(0,0,0,0.18);padding:40px;}
+.page-org{text-align:center;color:#009EDB;font-size:0.9em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.page-title{color:#1a1a1a;text-align:center;margin-bottom:8px;font-size:1.9em;font-weight:700;}
+.page-subtitle{text-align:center;color:#555;font-size:0.93em;margin-bottom:10px;}
+.divider{width:60px;height:3px;background:#009EDB;margin:16px auto 32px;border-radius:2px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;}
+.card{background:#fff;border:1px solid #C8E8F5;border-top:4px solid #009EDB;border-radius:4px;padding:24px 22px 20px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;min-height:210px;transition:box-shadow 0.2s,transform 0.2s;}
+.card:hover{box-shadow:0 8px 28px rgba(0,158,219,0.22);transform:translateY(-4px);}
+.badge{display:inline-block;background:#E6F6FC;color:#007AAB;font-size:0.72em;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:12px;}
+.card h2{font-size:1.05em;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.4;}
+.card .org{font-size:0.84em;color:#555;margin-bottom:10px;flex-grow:1;}
+.card .date{font-size:0.79em;color:#888;margin-bottom:16px;}
+.btn{background:#009EDB;color:#fff;padding:10px 18px;border-radius:3px;text-decoration:none;text-align:center;font-size:0.84em;font-weight:600;display:inline-block;transition:background 0.2s;}
+.btn:hover{background:#0078A8;}
+.footer{text-align:center;margin-top:32px;font-size:0.76em;color:#aaa;}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎓 Mis Certificados</h1>
-        <p class="subtitle">Mis credenciales y certificaciones profesionales</p>
-        
-        <div class="certificates-grid">
-            <!-- CERTIFICADO 1 -->
-            <a href="Certificate%20awarded%20by%20the%20International%20Organization%20for%20Migration%20(IOM)%20in%20Data%20for%20Policymaking%2C%20Risk%20Analysis%20and%20Intelligence.pdf" class="certificate-card" target="_blank">
-                <div>
-                    <h2>Data for Policymaking</h2>
-                    <p>International Organization for Migration (IOM)</p>
-                    <div class="date">📅 2026</div>
-                </div>
-                <button class="btn">Ver Certificado →</button>
-            </a>
-             <!-- CERTIFICADO 2 -->
-    <a href="Certificate%20awarded%20by%20the%20University%20of%20Kent%20in%20Critical%20International%20Migration%20Law.pdf" class="certificate-card" target="_blank">
-        <div>
-            <h2>Critical International Migration Law</h2>
-            <p>University of Kent</p>
-            <div class="date">📅 2026</div>
-        </div>
-        <button class="btn">Ver Certificado →</button>
-    </a>
-            <!-- AGREGAR MÁS CERTIFICADOS AQUÍ -->
-        </div>
-    </div>
+<div class="un-header">&#127482;&#127475;</div>
+<div class="container">
+<p class="page-org">United Nations Development Programme (UNDP)</p>
+<h1 class="page-title">Professional Certificates</h1>
+<p class="page-subtitle">Credentials and certifications in Public Finance</p>
+<div class="divider"></div>
+<div class="grid">
+
+<a href="https://rotvaldi.github.io/certificatesundp/Certificate%20awarded%20by%20the%20United%20Nations%20Development%20Programme%20(UNDP)%20in%20Public%20Finance%20I%20Introduction%20to%20Debt.pdf" class="card" target="_blank">
+<div>
+<span class="badge">UNDP &middot; August 7, 2025</span>
+<h2>Public Finance I: Introduction to Debt</h2>
+<p class="org">United Nations Development Programme (UNDP)</p>
+<p class="date">Digital certificate &middot; August 7, 2025</p>
+</div>
+<span class="btn">View certificate &rarr;</span>
+</a>
+
+<a href="https://rotvaldi.github.io/certificatesundp/Certificate%20awarded%20by%20the%20United%20Nations%20Development%20Programme%20(UNDP)%20in%20Public%20Finance%20II%20Introduction%20to%20Tax.pdf" class="card" target="_blank">
+<div>
+<span class="badge">UNDP &middot; August 8, 2025</span>
+<h2>Public Finance II: Introduction to Tax</h2>
+<p class="org">United Nations Development Programme (UNDP)</p>
+<p class="date">Digital certificate &middot; August 8, 2025</p>
+</div>
+<span class="btn">View certificate &rarr;</span>
+</a>
+
+<a href="https://rotvaldi.github.io/certificatesundp/Certificate%20awarded%20by%20the%20United%20Nations%20Development%20Programme%20(UNDP)%20in%20Public%20Finance%20III%20Budgeting%20for%20the%20SDGs.pdf" class="card" target="_blank">
+<div>
+<span class="badge">UNDP &middot; August 9, 2025</span>
+<h2>Public Finance III: Budgeting</h2>
+<p class="org">United Nations Development Programme (UNDP)</p>
+<p class="date">Digital certificate &middot; August 9, 2025</p>
+</div>
+<span class="btn">View certificate &rarr;</span>
+</a>
+
+<a href="https://rotvaldi.github.io/certificatesundp/Certificate%20awarded%20by%20the%20United%20Nations%20Development%20Programme%20(UNDP)%20in%20Public%20Finance%20IV%20Insurance%20and%20Risk%20Finance.pdf" class="card" target="_blank">
+<div>
+<span class="badge">UNDP &middot; August 10, 2025</span>
+<h2>Public Finance IV: Insurance and Risk Finance</h2>
+<p class="org">United Nations Development Programme (UNDP)</p>
+<p class="date">Digital certificate &middot; August 10, 2025</p>
+</div>
+<span class="btn">View certificate &rarr;</span>
+</a>
+
+</div>
+<p class="footer">&copy; 2025 &middot; Diego Alonso Rotta Valverde &middot; Certificates issued by UNDP</p>
+</div>
 </body>
 </html>
